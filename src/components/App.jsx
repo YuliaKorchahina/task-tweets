@@ -1,16 +1,16 @@
+import { Routes, Route } from 'react-router-dom';
+import NavbarMenu from './NavBar';
+import Home from 'Pages/Home';
+import Tweets from 'Pages/Tweets';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <NavbarMenu />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tweets" element={<Tweets />} />
+      </Routes>
+    </>
   );
 };
