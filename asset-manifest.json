@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/task-tweets/static/js/main.0d30a365.js",
+    "index.html": "/task-tweets/index.html",
+    "main.0d30a365.js.map": "/task-tweets/static/js/main.0d30a365.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.0d30a365.js"
+  ]
+}
