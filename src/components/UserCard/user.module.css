@@ -1,6 +1,7 @@
 @import-normalize;
 
 .card {
+    position: relative;
     width: 380px;
     height: 460px;
     padding: 20px;
@@ -8,10 +9,13 @@
     box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
     border-radius: 20px;
 }
-.wrapper{
+
+.wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 254px;
+
 }
 
 .box {
@@ -22,14 +26,55 @@
 }
 
 .avatar {
+    position: absolute;
     display: block;
     width: 80px;
     height: 80px;
-    margin-bottom: 26px;
+    /* margin-bottom: 26px; */
+    top: 180px;
+    left: 140px;
+
+}
+
+.decor {
+    display: block;
+    position: absolute;
+    width: 380px;
+    height: 8px;
+    left: 0px;
+    top: 214px;
+
+    background: #EBD8FF;
+    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06), inset 0px -1.71846px 3.43693px #AE7BE3, inset 0px 3.43693px 2.5777px #FBF8FF;
 }
 
 .symbols {
     display: block;
     width: 308px;
     height: 168px;
+    position: absolute;
+    width: 308px;
+    height: 168px;
+    left: 36px;
+    top: 28px;
+}
+.textTweets{
+    color: #EBD8FF;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+.textFollowers{
+    color: #EBD8FF;
+    text-transform: uppercase;
+}
+
+.btn {
+    width: 196px;
+    height: 50px;
+    margin-top: 26px;
+    padding: 14px;
+    background: #EBD8FF;
+    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    text-transform: uppercase;
 }

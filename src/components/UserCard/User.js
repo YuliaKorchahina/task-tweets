@@ -32,10 +32,11 @@ const User = () => {
       <img src={logo} className={styles.logo} alt="logo"></img>
       <div className={styles.wrapper}>
         <img src={symbols} className={styles.symbols} alt="symbols"></img>
+        <div className={styles.decor}></div>
         <img src={avatar} className={styles.avatar} alt=""></img>
-        <p>{tweets} tweets</p>
-        <p>{followers} followers</p>
-        <button>FOLLOW</button>
+        <p  className={styles.textTweets}>{tweets} tweets</p>
+        <p className={styles.textFollowers} >{followers} followers</p>
+        <button className={styles.btn}>follow</button>
       </div>
     </li>
   ));
