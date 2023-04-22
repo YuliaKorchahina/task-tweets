@@ -1,8 +1,9 @@
 // import PropTypes from "prop-types";
 
 import { useState, useEffect } from 'react';
-import avatar from '../images/bg.png';
-import bg from '../images/avatar.png';
+import symbols from '../images/symbols.png';
+import logo from '../images/logo.png';
+import avatar from '../images/avatar.png';
 import { getUser } from 'components/shared/api';
 import styles from './user.module.css';
 
@@ -26,21 +27,19 @@ const User = () => {
     []
   );
 
-  const elements = users.map(({ tweets, followers,id }) => (
-    <div className={styles.wrapper}>
-      <li key={id}>
-        <img className={styles.avatar} src={avatar} alt="avatar boy"></img>
-      </li>
-      <li>
-        <img src={bg} alt="img"></img>
-      </li>
-      <li>{tweets} tweets</li>
-      <li>{followers} followers</li>
-
-      <button>FOLLOW</button>
-    </div>
+  const elements = users.map(({ tweets, followers, id }) => (
+    <li key={id} className={styles.card} width={80}>
+      <img src={logo} className={styles.logo} alt="logo"></img>
+      <div className={styles.wrapper}>
+        <img src={symbols} className={styles.symbols} alt="symbols"></img>
+        <img src={avatar} className={styles.avatar} alt=""></img>
+        <p>{tweets} tweets</p>
+        <p>{followers} followers</p>
+        <button>FOLLOW</button>
+      </div>
+    </li>
   ));
-  return <ul className={styles.box}> {elements} </ul>;
+  return <ul className={styles.box}>{elements}</ul>;
 };
 
 export default User;

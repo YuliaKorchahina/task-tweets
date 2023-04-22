@@ -1,16 +1,35 @@
-.wrapper {
+@import-normalize;
+
+.card {
     width: 380px;
     height: 460px;
+    padding: 20px;
     background: linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%);
     box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
     border-radius: 20px;
 }
-.box{
+.wrapper{
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    
 }
-/* .avatar {
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+}
+
+.avatar {
+    display: block;
     width: 80px;
     height: 80px;
-    
-} */
+    margin-bottom: 26px;
+}
+
+.symbols {
+    display: block;
+    width: 308px;
+    height: 168px;
+}
