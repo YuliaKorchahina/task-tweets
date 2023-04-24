@@ -1,10 +1,10 @@
-import User from 'components/UserCard/User';
+import UserContainer from 'components/UserContainer';
 
 const Tweets = () => {
   return (
     <>
       <div>tweets</div>
-      <User />
+      <UserContainer />
       <button>Back to home</button>
     </>
   );
