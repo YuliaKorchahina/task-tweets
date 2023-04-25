@@ -5,13 +5,22 @@ const instance = axios.create({
 });
 
 export const getUser = async () => {
-  const { data } = await instance.get('/users');
-  return data;
+  try {
+    const { data } = await instance.get('/users');
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const updateUser = async (id, newFollowers) => {
-  const { data } = await instance.put(`/users/${id}`, {
-    followers: newFollowers,
-  });
-  return data;
+export const updateUser = async (id, isFollowing, newFollowers) => {
+  try {
+    const { data } = await instance.put(`/users/${id}`, {
+      followers: newFollowers,
+      // isFollow: isFollowing,
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };

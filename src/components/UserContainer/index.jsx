@@ -8,10 +8,24 @@ import UserList from './UserList';
 
 const UserContainer = () => {
   const [users, setUsers] = useState([]);
+  const [isFollowing, setIsFollowing] = useState(false);
 
-  const handelUpadateUser = async (id, followers) => {
-    const newFollowers = Number(followers) + 1;
-    updateUser(id, newFollowers.toString()).then(async () => {
+  const handelUpadateUser = async (id, followers, isFollow) => {
+    const result = isFollow => {
+      setIsFollowing(isFollow);
+      if (isFollowing === false) {
+        setIsFollowing(true);
+        const following= Number(followers) + 1;
+        return following;
+      } else {
+        setIsFollowing(false);
+        const unFollowing =Number(followers) - 1;
+        return unFollowing;
+      }
+    };
+
+    updateUser(id, isFollowing, result().toString()).then(async () => {
+      // setIsFollowing(true) ? setIsFollowing(false) : setIsFollowing(true);
       handleSetUsers();
     });
   };
