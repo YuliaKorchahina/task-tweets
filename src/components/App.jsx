@@ -7,13 +7,15 @@ import { GlobalStyle } from './common_style/GlobalStyle';
 
 export const App = () => {
   return (
-    <Container>
-      <GlobalStyle />
+    <>
       <NavbarMenu />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/tweets" element={<Tweets />} />
-      </Routes>
-    </Container>
+      <Container>
+        <GlobalStyle />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tweets" element={<Tweets />} />
+        </Routes>
+      </Container>
+    </>
   );
 };

@@ -1,5 +1,5 @@
 import UserCard from './UserCard';
-import styles from './user.module.css';
+import styles from '../user.module.css';
 
 const UserList = ({ users, handelUpadateUser, isFollowing }) => {
   return (

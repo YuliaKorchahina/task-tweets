@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 
 import { getUser, updateUser } from 'components/shared/api';
-import styles from './user.module.css';
+import styles from '../user.module.css';
 import UserList from './UserList';
+import LoadMore from 'components/LoadMore';
 
 const UserContainer = () => {
   const [users, setUsers] = useState([]);
@@ -46,14 +47,17 @@ const UserContainer = () => {
   );
 
   return (
-    <ul className={styles.box}>
-      {/* <UserList {...{ users, handelUpadateUser }} /> */}
-      <UserList
-        users={users}
-        handelUpadateUser={handelUpadateUser}
-        // isFollowing={isFollowing}
-      />
-    </ul>
+    <>
+      <ul className={styles.box}>
+        {/* <UserList {...{ users, handelUpadateUser }} /> */}
+        <UserList
+          users={users}
+          handelUpadateUser={handelUpadateUser}
+          // isFollowing={isFollowing}
+        />
+      </ul>
+     {users.length === 3 &&<LoadMore />}
+    </>
   );
 };
 

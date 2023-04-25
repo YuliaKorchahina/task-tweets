@@ -1,5 +1,5 @@
 // import { useState, useEffect } from 'react';
-import styles from './user.module.css';
+import styles from '../user.module.css';
 import symbols from '../images/symbols.png';
 import logo from '../images/logo.png';
 
@@ -11,6 +11,10 @@ const UserCard = ({
   handelUpadateUser,
   isFollow,
 }) => {
+  const btnText = isFollow => {
+    return isFollow === true ? 'following' : 'follow';
+  };
+
   return (
     <>
       <img src={logo} className={styles.logo} alt="logo"></img>
@@ -24,10 +28,10 @@ const UserCard = ({
           type="submit"
           id={id}
           onClick={() => handelUpadateUser(id, followers, isFollow)}
-          style={{ backgroundColor: isFollow === true ? 'green' : '#EBD8FF' }}
+          style={{ backgroundColor: isFollow === true ? '#5CD3A8' : '#EBD8FF' }}
           className={styles.btn}
         >
-          follow
+          {btnText(isFollow)}
         </button>
       </div>
     </>

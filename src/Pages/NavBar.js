@@ -1,10 +1,15 @@
 import { NavLink } from 'react-router-dom';
 
+import styles from '../components/user.module.css';
 const NavbarMenu = () => {
   return (
-    <nav>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/tweets">Tweets</NavLink>
+    <nav className={styles.nav}>
+      <NavLink className={styles.btn} to="/">
+        Home
+      </NavLink>
+      <NavLink className={styles.btn} to="/tweets">
+        Tweets 
+      </NavLink>
     </nav>
   );
 };

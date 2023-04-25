@@ -1,5 +1,21 @@
 @import-normalize;
 
+/* .btn{
+    display: inline-block;
+  width: 48px;
+  height: 48px;
+} */
+.nav {
+    background: rgb(210, 196, 224);
+    padding: 30px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+}
+.btn:hover{
+    background: rgb(154, 99, 209); 
+}
 .card {
     position: relative;
     width: 380px;
@@ -22,7 +38,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-
+    justify-content: center;
 }
 
 .avatar {
@@ -34,7 +50,7 @@
     top: 180px;
     left: 140px;
 
-    
+
 }
 
 .decor {
@@ -59,12 +75,14 @@
     left: 36px;
     top: 28px;
 }
-.textTweets{
+
+.textTweets {
     color: #EBD8FF;
     text-transform: uppercase;
     margin-bottom: 16px;
 }
-.textFollowers{
+
+.textFollowers {
     color: #EBD8FF;
     text-transform: uppercase;
 }
@@ -79,4 +97,3 @@
     border-radius: 10px;
     text-transform: uppercase;
 }
-

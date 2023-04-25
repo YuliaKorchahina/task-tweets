@@ -4,4 +4,5 @@ export const Container = styled.div`
   width: 100%;
   padding: 12px;
   margin: 0 auto;
+ 
 `;

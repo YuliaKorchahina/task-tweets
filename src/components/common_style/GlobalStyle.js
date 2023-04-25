@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-
 export const GlobalStyle = createGlobalStyle`
 * {
   box-sizing: border-box;
@@ -14,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     line-height:1.2;
     font-weight: 500;
     font-size: 20px;
+    background: 	#E8E8E8;
   }
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -122,8 +122,8 @@ body {
     font-weight: 500;
     line-height: 1.16;
   } */
-  /* ------------------------container------------------------ */
-  /* .container {
+/* ------------------------container------------------------ */
+/* .container {
     margin: 0 auto;
     padding: 0 20px;
   
