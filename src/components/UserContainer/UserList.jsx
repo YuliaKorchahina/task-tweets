@@ -1,12 +1,12 @@
 import UserCard from './UserCard';
 import styles from './user.module.css';
 
-const UserList = ({ users, handelUpadateUser }) => {
+const UserList = ({ users, handelUpadateUser, isFollowing }) => {
   return (
     <>
       {users.map(el => (
         <li key={el.id} className={styles.card} width={80}>
-          <UserCard {...{ ...el, handelUpadateUser }} />
+          <UserCard {...{ ...el, handelUpadateUser, isFollowing }} />
         </li>
       ))}
     </>

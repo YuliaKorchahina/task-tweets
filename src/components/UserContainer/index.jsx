@@ -8,26 +8,20 @@ import UserList from './UserList';
 
 const UserContainer = () => {
   const [users, setUsers] = useState([]);
-  const [isFollowing, setIsFollowing] = useState(false);
+
+  const prepareFollowers = (followers, isFollow) => {
+    const newFollowers = isFollow
+      ? Number(followers) - 1
+      : Number(followers) + 1;
+    return newFollowers.toString();
+  };
 
   const handelUpadateUser = async (id, followers, isFollow) => {
-    const result = isFollow => {
-      setIsFollowing(isFollow);
-      if (isFollowing === false) {
-        setIsFollowing(true);
-        const following= Number(followers) + 1;
-        return following;
-      } else {
-        setIsFollowing(false);
-        const unFollowing =Number(followers) - 1;
-        return unFollowing;
+    updateUser(id, prepareFollowers(followers, isFollow), !isFollow).then(
+      async () => {
+        handleSetUsers();
       }
-    };
-
-    updateUser(id, isFollowing, result().toString()).then(async () => {
-      // setIsFollowing(true) ? setIsFollowing(false) : setIsFollowing(true);
-      handleSetUsers();
-    });
+    );
   };
 
   const handleSetUsers = async () => {
@@ -54,7 +48,11 @@ const UserContainer = () => {
   return (
     <ul className={styles.box}>
       {/* <UserList {...{ users, handelUpadateUser }} /> */}
-      <UserList users={users} handelUpadateUser={handelUpadateUser} />
+      <UserList
+        users={users}
+        handelUpadateUser={handelUpadateUser}
+        // isFollowing={isFollowing}
+      />
     </ul>
   );
 };

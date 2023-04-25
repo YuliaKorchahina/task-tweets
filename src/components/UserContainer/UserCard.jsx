@@ -3,7 +3,14 @@ import styles from './user.module.css';
 import symbols from '../images/symbols.png';
 import logo from '../images/logo.png';
 
-const UserCard = ({ tweets, followers, avatar, id, handelUpadateUser }) => {
+const UserCard = ({
+  tweets,
+  followers,
+  avatar,
+  id,
+  handelUpadateUser,
+  isFollow,
+}) => {
   return (
     <>
       <img src={logo} className={styles.logo} alt="logo"></img>
@@ -16,7 +23,8 @@ const UserCard = ({ tweets, followers, avatar, id, handelUpadateUser }) => {
         <button
           type="submit"
           id={id}
-          onClick={() => handelUpadateUser(id, followers)}
+          onClick={() => handelUpadateUser(id, followers, isFollow)}
+          style={{ backgroundColor: isFollow === true ? 'green' : '#EBD8FF' }}
           className={styles.btn}
         >
           follow

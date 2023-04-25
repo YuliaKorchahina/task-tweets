@@ -13,11 +13,11 @@ export const getUser = async () => {
   }
 };
 
-export const updateUser = async (id, isFollowing, newFollowers) => {
+export const updateUser = async (id, followers, isFollow) => {
   try {
     const { data } = await instance.put(`/users/${id}`, {
-      followers: newFollowers,
-      // isFollow: isFollowing,
+      followers,
+      isFollow,
     });
     return data;
   } catch (error) {
