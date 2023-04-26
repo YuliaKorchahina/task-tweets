@@ -8,7 +8,7 @@ const Tweets = () => {
   const [isFetching, setIsFetching] = useState(false);
 
   const navigate = useNavigate();
-  const goBack = () => navigate(-1);
+  const goBack = () => navigate('/');
 
   const handleIsFetching = isFetching => {
     setIsFetching(isFetching);
