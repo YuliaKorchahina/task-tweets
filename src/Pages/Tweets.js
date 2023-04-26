@@ -1,16 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UserContainer from 'components/UserContainer';
 import styles from '../components/user.module.css';
 
 const Tweets = () => {
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1);
   return (
     <>
-      <UserContainer />
-      <button className={styles.btn}>
-        <Link to="/">To Home page</Link>
+      <button onClick={goBack} className={styles.btn}>
+        <Link to="/">Back</Link>
       </button>
+      <UserContainer />
     </>
   );
 };
 
 export default Tweets;
+

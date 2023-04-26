@@ -1,18 +1,18 @@
-// import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from '../user.module.css';
 import symbols from '../images/symbols.png';
 import logo from '../images/logo.png';
+import PropTypes from 'prop-types';
 
-const UserCard = ({
-  tweets,
-  followers,
-  avatar,
-  id,
-  handelUpadateUser,
-  isFollow,
-}) => {
+
+const UserCard = ({ userData, handelUpadateUser }) => {
+  const [user, setUser] = useState({ ...userData });
+  const { tweets, followers, avatar, id, isFollow } = user;
   const btnText = isFollow => {
     return isFollow === true ? 'following' : 'follow';
+  };
+  const handleSetUser = user => {
+    setUser(user);
   };
 
   return (
@@ -27,11 +27,13 @@ const UserCard = ({
         <button
           type="submit"
           id={id}
-          onClick={() => handelUpadateUser(id, followers, isFollow)}
+          onClick={() =>
+            handelUpadateUser(id, { followers, isFollow }, handleSetUser)
+          }
           style={{ backgroundColor: isFollow === true ? '#5CD3A8' : '#EBD8FF' }}
           className={styles.btn}
         >
-          {btnText(isFollow)}
+          <span className={styles.btnContent}>{btnText(isFollow)}</span>
         </button>
       </div>
     </>
@@ -39,3 +41,8 @@ const UserCard = ({
 };
 
 export default UserCard;
+
+UserCard.propTypes= {
+  userData: PropTypes.object,  
+  handelUpadateUser: PropTypes.func.isRequired
+}

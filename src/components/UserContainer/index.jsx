@@ -1,7 +1,6 @@
 // import PropTypes from "prop-types";
 
 import { useState, useEffect } from 'react';
-
 import { getUser, updateUser } from 'components/shared/api';
 import styles from '../user.module.css';
 import UserList from './UserList';
@@ -18,10 +17,10 @@ const UserContainer = () => {
     return newFollowers.toString();
   };
 
-  const handelUpadateUser = async (id, followers, isFollow) => {
+  const handelUpadateUser = async (id, { followers, isFollow }, callback) => {
     updateUser(id, prepareFollowers(followers, isFollow), !isFollow).then(
-      async () => {
-        handleSetUsers();
+      userData => {
+        callback(userData);
       }
     );
   };
@@ -44,9 +43,9 @@ const UserContainer = () => {
     const nextPage = page + 1;
     const handleSetUsersNext = async () => {
       const usersNext = await getUser(nextPage);
-    setUsers([...users, ...usersNext]);
-  };
-  handleSetUsersNext(nextPage);
+      setUsers([...users, ...usersNext]);
+    };
+    handleSetUsersNext(nextPage);
   };
 
   useEffect(
@@ -60,14 +59,9 @@ const UserContainer = () => {
   return (
     <>
       <ul className={styles.box}>
-        {/* <UserList {...{ users, handelUpadateUser }} /> */}
-        <UserList
-          users={users}
-          handelUpadateUser={handelUpadateUser}
-          // isFollowing={isFollowing}
-        />
+        <UserList users={users} handelUpadateUser={handelUpadateUser} />
       </ul>
-      <LoadMore onClick={onClick} />
+      <LoadMore onClick={onClick} users={users} />{' '}
     </>
   );
 };
