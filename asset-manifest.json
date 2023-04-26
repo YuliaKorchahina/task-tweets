@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/task-tweets/static/css/main.ae4762c0.css",
-    "main.js": "/task-tweets/static/js/main.7a26f52b.js",
+    "main.css": "/task-tweets/static/css/main.c2425429.css",
+    "main.js": "/task-tweets/static/js/main.786c03d4.js",
     "static/media/symbols.png": "/task-tweets/static/media/symbols.032662a2a907475127d7.png",
     "index.html": "/task-tweets/index.html",
-    "main.ae4762c0.css.map": "/task-tweets/static/css/main.ae4762c0.css.map",
-    "main.7a26f52b.js.map": "/task-tweets/static/js/main.7a26f52b.js.map"
+    "main.c2425429.css.map": "/task-tweets/static/css/main.c2425429.css.map",
+    "main.786c03d4.js.map": "/task-tweets/static/js/main.786c03d4.js.map"
   },
   "entrypoints": [
-    "static/css/main.ae4762c0.css",
-    "static/js/main.7a26f52b.js"
+    "static/css/main.c2425429.css",
+    "static/js/main.786c03d4.js"
   ]
 }
