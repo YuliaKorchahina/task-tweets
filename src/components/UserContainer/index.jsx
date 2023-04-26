@@ -9,6 +9,7 @@ import LoadMore from 'components/LoadMore';
 
 const UserContainer = () => {
   const [users, setUsers] = useState([]);
+  const [page, setPage] = useState(1);
 
   const prepareFollowers = (followers, isFollow) => {
     const newFollowers = isFollow
@@ -26,7 +27,7 @@ const UserContainer = () => {
   };
 
   const handleSetUsers = async () => {
-    const users = await getUser();
+    const users = await getUser(page);
     setUsers(users);
   };
 
@@ -36,6 +37,16 @@ const UserContainer = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const onClick = () => {
+    setPage(page + 1);
+    const nextPage = page + 1;
+    const handleSetUsersNext = async () => {
+      const usersNext = await getUser(nextPage);
+    setUsers([...users, ...usersNext]);
+  };
+  handleSetUsersNext(nextPage);
   };
 
   useEffect(
@@ -56,7 +67,7 @@ const UserContainer = () => {
           // isFollowing={isFollowing}
         />
       </ul>
-     {users.length === 3 &&<LoadMore />}
+      <LoadMore onClick={onClick} />
     </>
   );
 };
