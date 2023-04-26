@@ -3,7 +3,7 @@ import styles from '../user.module.css';
 import symbols from '../images/symbols.png';
 import logo from '../images/logo.png';
 import PropTypes from 'prop-types';
-
+import { formatThousand } from 'utils/format';
 
 const UserCard = ({ userData, handelUpadateUser }) => {
   const [user, setUser] = useState({ ...userData });
@@ -23,7 +23,9 @@ const UserCard = ({ userData, handelUpadateUser }) => {
         <div className={styles.decor}></div>
         <img src={avatar} className={styles.avatar} alt=""></img>
         <p className={styles.textTweets}>{tweets} tweets</p>
-        <p className={styles.textFollowers}>{followers} followers</p>
+        <p className={styles.textFollowers}>
+          {formatThousand(followers)} followers
+        </p>
         <button
           type="submit"
           id={id}
@@ -42,7 +44,7 @@ const UserCard = ({ userData, handelUpadateUser }) => {
 
 export default UserCard;
 
-UserCard.propTypes= {
-  userData: PropTypes.object,  
-  handelUpadateUser: PropTypes.func.isRequired
-}
+UserCard.propTypes = {
+  userData: PropTypes.object,
+  handelUpadateUser: PropTypes.func.isRequired,
+};

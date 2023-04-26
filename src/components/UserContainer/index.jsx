@@ -6,7 +6,7 @@ import styles from '../user.module.css';
 import UserList from './UserList';
 import LoadMore from 'components/LoadMore';
 
-const UserContainer = () => {
+const UserContainer = ({ handleIsFetching }) => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -18,16 +18,20 @@ const UserContainer = () => {
   };
 
   const handelUpadateUser = async (id, { followers, isFollow }, callback) => {
-    updateUser(id, prepareFollowers(followers, isFollow), !isFollow).then(
+    handleIsFetching(true);
+    await updateUser(id, prepareFollowers(followers, isFollow), !isFollow).then(
       userData => {
         callback(userData);
       }
     );
+    handleIsFetching(false);
   };
 
   const handleSetUsers = async () => {
+    handleIsFetching(true);
     const users = await getUser(page);
     setUsers(users);
+    handleIsFetching(false);
   };
 
   const getUsersData = () => {
@@ -38,12 +42,14 @@ const UserContainer = () => {
     }
   };
 
-  const onClick = () => {
+  const hanleLoadMore = () => {
     setPage(page + 1);
     const nextPage = page + 1;
     const handleSetUsersNext = async () => {
+      handleIsFetching(true);
       const usersNext = await getUser(nextPage);
       setUsers([...users, ...usersNext]);
+      handleIsFetching(false);
     };
     handleSetUsersNext(nextPage);
   };
@@ -61,7 +67,7 @@ const UserContainer = () => {
       <ul className={styles.box}>
         <UserList users={users} handelUpadateUser={handelUpadateUser} />
       </ul>
-      <LoadMore onClick={onClick} users={users} />{' '}
+      <LoadMore onClick={hanleLoadMore} users={users} />{' '}
     </>
   );
 };
